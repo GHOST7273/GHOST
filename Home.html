@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHOST7273</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="matrixCanvas"></canvas>
+
+  <div class="container">
+    <!-- Glitch text element -->
+    <h1 class="ghost-title">Ghost7273</h1>
+    <!-- Center image -->
+    <img src="c:\Users\desai\Downloads\image_transparent.png" alt="Love Kills Slowly" class="center-image">
+  </div>
+
+  <script>
+    // Matrix Background Effect
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "01X89GHOST727";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = "#00ff00";
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    
+    setInterval(drawMatrix, 50);
+
+    window.onresize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    // Random positioning and glitch effect for the ghost title
+    function randomizeGhostPosition() {
+      const ghost = document.querySelector('.ghost-title');
+      if (ghost) {
+        const maxX = window.innerWidth - ghost.offsetWidth;
+        const maxY = window.innerHeight - ghost.offsetHeight;
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+        ghost.style.left = randomX + 'px';
+        ghost.style.top = randomY + 'px';
+      }
+    }
+
+    function toggleGhostVisibility() {
+      const ghost = document.querySelector('.ghost-title');
+      if (ghost) {
+        // Randomly set opacity to 0 or 1 to simulate glitch appearance/disappearance
+        ghost.style.opacity = Math.random() > 0.5 ? '1' : '0';
+      }
+    }
+
+    // Set initial random position
+    randomizeGhostPosition();
+    // Randomize position every 3 seconds
+    setInterval(randomizeGhostPosition, 3000);
+    // Toggle visibility every 1 second
+    setInterval(toggleGhostVisibility, 1000);
+  </script>
+</body>
+</html>
