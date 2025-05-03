@@ -24,83 +24,83 @@ canvas {
 
 /* Glitch title styling */
 .ghost-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2rem;
-    color: white;
-    font-style: italic;
-    position: absolute;
-    /* Animate over 8 seconds and repeat infinitely */
-    animation: appearDisappearMove 10s infinite;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: white;
+  font-style: italic;
+  position: absolute;
+  /* Animate over 8 seconds and repeat infinitely */
+  animation: appearDisappearMove 10s infinite;
+}
+
+/* Keyframes to simulate random movement with appearance/disappearance */
+@keyframes appearDisappearMove {
+  0% {
+    opacity: 0;
+    left: 10%;
+    top: 10%;
   }
-  
-  /* Keyframes to simulate random movement with appearance/disappearance */
-  @keyframes appearDisappearMove {
-    0% {
-      opacity: 0;
-      left: 10%;
-      top: 10%;
-    }
-    15% {
-      opacity: 1;
-      left: 10%;
-      top: 10%;
-    }
-    25% {
-      opacity: 0;
-      left: 10%;
-      top: 10%;
-    }
-    30% {
-      opacity: 0;
-      left: 50%;
-      top: 20%;
-    }
-    35% {
-      opacity: 1;
-      left: 50%;
-      top: 20%;
-    }
-    45% {
-      opacity: 0;
-      left: 50%;
-      top: 20%;
-    }
-    50% {
-      opacity: 0;
-      left: 70%;
-      top: 70%;
-    }
-    55% {
-      opacity: 1;
-      left: 70%;
-      top: 70%;
-    }
-    65% {
-      opacity: 0;
-      left: 70%;
-      top: 70%;
-    }
-    70% {
-      opacity: 0;
-      left: 20%;
-      top: 80%;
-    }
-    75% {
-      opacity: 1;
-      left: 20%;
-      top: 80%;
-    }
-    85% {
-      opacity: 0;
-      left: 20%;
-      top: 80%;
-    }
-    100% {
-      opacity: 0;
-      left: 10%;
-      top: 10%;
-    }
+  15% {
+    opacity: 1;
+    left: 10%;
+    top: 10%;
   }
+  25% {
+    opacity: 0;
+    left: 10%;
+    top: 10%;
+  }
+  30% {
+    opacity: 0;
+    left: 50%;
+    top: 20%;
+  }
+  35% {
+    opacity: 1;
+    left: 50%;
+    top: 20%;
+  }
+  45% {
+    opacity: 0;
+    left: 50%;
+    top: 20%;
+  }
+  50% {
+    opacity: 0;
+    left: 70%;
+    top: 70%;
+  }
+  55% {
+    opacity: 1;
+    left: 70%;
+    top: 70%;
+  }
+  65% {
+    opacity: 0;
+    left: 70%;
+    top: 70%;
+  }
+  70% {
+    opacity: 0;
+    left: 20%;
+    top: 80%;
+  }
+  75% {
+    opacity: 1;
+    left: 20%;
+    top: 80%;
+  }
+  85% {
+    opacity: 0;
+    left: 20%;
+    top: 80%;
+  }
+  100% {
+    opacity: 0;
+    left: 10%;
+    top: 10%;
+  }
+}
 
 /* Center image styling */
 .center-image {
@@ -108,4 +108,36 @@ canvas {
   margin: 150px auto;
   width: 350px; /* Adjust size as needed */
   filter: drop-shadow(5px 5px 10px rgba(255, 0, 0, 0.8));
+}
+
+/* Media Query for small screens (mobile) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust text size for small screens */
+  }
+
+  .ghost-title {
+    font-size: 1.5rem; /* Reduce title size on smaller screens */
+  }
+
+  .center-image {
+    width: 250px; /* Make image smaller on mobile */
+    margin: 100px auto; /* Adjust margin for smaller screens */
+  }
+}
+
+/* Media Query for very small screens (extra mobile) */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px; /* Further reduce font size on very small screens */
+  }
+
+  .ghost-title {
+    font-size: 1.2rem; /* Further reduce title size */
+  }
+
+  .center-image {
+    width: 200px; /* Make image smaller */
+    margin: 50px auto; /* Adjust margin for very small screens */
+  }
 }
